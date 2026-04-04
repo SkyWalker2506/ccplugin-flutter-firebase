@@ -2,7 +2,10 @@
   "name": "flutter-firebase",
   "version": "1.0.0",
   "description": "Flutter + Firebase MCP integration for Claude Code",
-  "author": "SkyWalker2506",
+  "author": {
+    "name": "Musab Kara",
+    "url": "https://github.com/SkyWalker2506"
+  },
   "category": "development",
   "keywords": [
     "flutter",

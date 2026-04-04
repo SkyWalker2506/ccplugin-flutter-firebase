@@ -1,6 +1,14 @@
-# ccplugin-flutter-firebase
+# flutter-firebase — Claude Code Plugin
+
+by [Musab Kara](https://linkedin.com/in/musab-kara-85580612a) · [GitHub](https://github.com/SkyWalker2506)
 
 Claude Code plugin for Flutter + Firebase development via MCP integration.
+
+## Install
+
+```bash
+claude plugin install flutter-firebase@musabkara-claude-marketplace
+```
 
 ## What it provides
 
@@ -8,15 +16,6 @@ Claude Code plugin for Flutter + Firebase development via MCP integration.
 - **firebase MCP server** — Firebase backend operations: Firestore CRUD, Storage uploads, Auth user lookup
 - **flutter-firebase skill** — Auto-activates when working with Flutter/Firebase projects
 - **flutter-setup command** — Environment verification and configuration
-
-## Installation
-
-Add this plugin to your Claude Code configuration:
-
-```bash
-cd ~/Projects/ccplugin-flutter-firebase
-claude plugins add .
-```
 
 ## Setup
 
@@ -100,3 +99,8 @@ This checks Flutter SDK, Firebase CLI, FlutterFire CLI, and MCP configuration.
 ## License
 
 MIT
+
+## Part of
+
+- [claude-config](https://github.com/SkyWalker2506/claude-config) — Multi-Agent OS for Claude Code (110 agents, local-first routing)
+- [Plugin Marketplace](https://github.com/SkyWalker2506/claude-marketplace) — Browse & install all 14 plugins
