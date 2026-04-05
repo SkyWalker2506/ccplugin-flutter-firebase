@@ -78,6 +78,7 @@ This checks Flutter SDK, Firebase CLI, FlutterFire CLI, and MCP configuration.
 | `flutter_gen_l10n` | Generate localizations |
 | `flutter_logs` | View logs |
 | `flutter_kill` | Stop running app |
+| `flutter_get_result` | Get result of a previously started async operation |
 
 ### firebase
 
@@ -102,5 +103,5 @@ MIT
 
 ## Part of
 
-- [claude-config](https://github.com/SkyWalker2506/claude-config) — Multi-Agent OS for Claude Code (110 agents, local-first routing)
+- [claude-config](https://github.com/SkyWalker2506/claude-config) — Multi-Agent OS for Claude Code (134 agents, local-first routing)
 - [Plugin Marketplace](https://github.com/SkyWalker2506/claude-marketplace) — Browse & install all 14 plugins
