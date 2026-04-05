@@ -21,9 +21,13 @@
     "firebase"
   ],
   "skills": [
-    "flutter-firebase"
+    {
+      "path": "flutter-firebase"
+    }
   ],
   "commands": [
-    "flutter-setup"
+    {
+      "path": "flutter-setup"
+    }
   ]
 }
