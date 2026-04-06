@@ -27,36 +27,9 @@ claude plugin install flutter-firebase@musabkara-claude-marketplace
 
 ### Firebase MCP configuration
 
-The firebase MCP server requires a service account key and project ID. Set these in `.mcp.json`:
+The firebase MCP server requires a service account key and project ID. Set these in `.mcp.json`.
 
-#### SERVICE_ACCOUNT_KEY_PATH
-
-1. Go to [Firebase Console](https://console.firebase.google.com/)
-2. Select your project
-3. Navigate to **Project Settings > Service Accounts**
-4. Click **Generate New Private Key**
-5. Save the JSON file to a secure location (e.g., `~/.config/firebase/service-account.json`)
-6. Set the absolute path in `.mcp.json`
-
-#### FIREBASE_PROJECT_ID
-
-1. Go to [Firebase Console](https://console.firebase.google.com/)
-2. Select your project
-3. Navigate to **Project Settings > General**
-4. Copy the **Project ID**
-5. Set it in `.mcp.json`
-
-Alternatively, run `firebase projects:list` to see all your project IDs.
-
-### Verify setup
-
-Run the setup command in Claude Code:
-
-```
-/flutter-setup
-```
-
-This checks Flutter SDK, Firebase CLI, FlutterFire CLI, and MCP configuration.
+Run `/flutter-setup` to verify everything is configured.
 
 ## MCP tools
 
@@ -78,7 +51,6 @@ This checks Flutter SDK, Firebase CLI, FlutterFire CLI, and MCP configuration.
 | `flutter_gen_l10n` | Generate localizations |
 | `flutter_logs` | View logs |
 | `flutter_kill` | Stop running app |
-| `flutter_get_result` | Get result of a previously started async operation |
 
 ### firebase
 
@@ -90,11 +62,7 @@ This checks Flutter SDK, Firebase CLI, FlutterFire CLI, and MCP configuration.
 | `firestore_delete_document` | Delete document |
 | `firestore_list_documents` | List documents |
 | `firestore_list_collections` | List collections |
-| `firestore_query_collection_group` | Query subcollections |
-| `storage_list_files` | List storage files |
 | `storage_upload` | Upload file |
-| `storage_upload_from_url` | Upload from URL |
-| `storage_get_file_info` | File metadata |
 | `auth_get_user` | Get user info |
 
 ## License
@@ -104,4 +72,5 @@ MIT
 ## Part of
 
 - [claude-config](https://github.com/SkyWalker2506/claude-config) — Multi-Agent OS for Claude Code (134 agents, local-first routing)
-- [Plugin Marketplace](https://github.com/SkyWalker2506/claude-marketplace) — Browse & install all 14 plugins
+- [Plugin Marketplace](https://github.com/SkyWalker2506/claude-marketplace) — Browse & install all 18 plugins
+- [ClaudeHQ](https://github.com/SkyWalker2506/ClaudeHQ) — Claude ecosystem HQ
