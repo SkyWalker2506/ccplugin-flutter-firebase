@@ -17,6 +17,23 @@ claude plugin install flutter-firebase@musabkara-claude-marketplace
 - **flutter-firebase skill** — Auto-activates when working with Flutter/Firebase projects
 - **flutter-setup command** — Environment verification and configuration
 
+## Quick Start
+
+```bash
+# 1. Install
+./install.sh
+
+# 2. Configure Firebase MCP (copy template, fill in values)
+cp .mcp.json.template .mcp.json
+
+# 3. Verify environment
+# In Claude Code:
+/flutter-setup
+
+# 4. Create a new Flutter + Firebase project
+/flutter-new
+```
+
 ## Setup
 
 ### Prerequisites
@@ -27,9 +44,29 @@ claude plugin install flutter-firebase@musabkara-claude-marketplace
 
 ### Firebase MCP configuration
 
-The firebase MCP server requires a service account key and project ID. Set these in `.mcp.json`.
+The firebase MCP server requires a service account key and project ID. Copy `.mcp.json.template` to `.mcp.json` and fill in:
+
+- `SERVICE_ACCOUNT_KEY_PATH` — Absolute path to your Firebase service account JSON
+  - Get it: Firebase Console → Project Settings → Service Accounts → Generate New Private Key
+- `FIREBASE_PROJECT_ID` — Your Firebase project ID (visible in Firebase Console URL)
 
 Run `/flutter-setup` to verify everything is configured.
+Run `/flutter-diagnose` for deep health check with fix suggestions.
+
+## Example Workflow
+
+```
+User: Run the tests for the auth module
+Claude: [flutter_analyze] → No issues found
+        [flutter_test] → Running tests in test/auth/...
+        [flutter_get_result] → 12 passed, 0 failed
+```
+
+```
+User: Add a new user document to Firestore
+Claude: [firestore_add_document] collection=users, data={name: "Alice", role: "admin"}
+        → Document created: users/abc123
+```
 
 ## MCP tools
 

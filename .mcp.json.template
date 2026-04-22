@@ -1,0 +1,16 @@
+{
+  "mcpServers": {
+    "flutter-dev": {
+      "command": "npx",
+      "args": ["-y", "flutter-dev-mcp"]
+    },
+    "firebase": {
+      "command": "npx",
+      "args": ["-y", "@gannonh/firebase-mcp"],
+      "env": {
+        "SERVICE_ACCOUNT_KEY_PATH": "/absolute/path/to/your-firebase-adminsdk.json",
+        "FIREBASE_PROJECT_ID": "your-firebase-project-id"
+      }
+    }
+  }
+}

@@ -61,3 +61,68 @@ Firebase backend services via MCP:
 6. Use Firestore tools for direct database operations during development
 7. Use Storage tools for asset and file management
 8. Use `auth_get_user` to debug authentication issues
+
+## Async Operations
+
+Many flutter-dev MCP tools return immediately with a task ID and run in the background. Use `flutter_get_result` to poll for completion:
+
+```
+# Start a build
+result = flutter_build(platform="apk", debug=True)
+task_id = result["taskId"]
+
+# Poll until done
+result = flutter_get_result(task_id=task_id)
+# When result["status"] == "done", check result["output"]
+```
+
+Always use `flutter_get_result` after: `flutter_build`, `flutter_run`, `flutter_test`.
+Do NOT use it after: `flutter_analyze`, `flutter_pub_get`, `flutter_pub_add` (these are synchronous).
+
+## Common Errors & Recovery
+
+### Xcode signing errors
+```
+Error: No signing certificate "iOS Development" found
+```
+Fix: Open Xcode → Preferences → Accounts → download certificates, or use `flutter build ios --no-codesign` for simulator testing.
+
+### Gradle build failures
+```
+Error: Could not resolve com.android.tools.build:gradle
+```
+Fix:
+1. `flutter clean`
+2. Check `android/build.gradle` for outdated Gradle version
+3. Update to latest stable: `distributionUrl=https://services.gradle.org/distributions/gradle-8.x-all.zip`
+
+### Firebase 403 / Permission Denied
+```
+Error: Missing or insufficient permissions
+```
+Fix:
+1. Verify `SERVICE_ACCOUNT_KEY_PATH` points to valid JSON file
+2. Check Firebase Console → IAM — service account needs `Cloud Datastore User` role
+3. Verify `FIREBASE_PROJECT_ID` matches your project (run `firebase projects:list`)
+
+### Firebase MCP not connecting
+Fix:
+1. Verify `.mcp.json` has correct `SERVICE_ACCOUNT_KEY_PATH` (absolute path, not `~`)
+2. Check JSON file exists: `ls -la /path/to/service-account.json`
+3. Re-run `/flutter-setup` to validate config
+
+### flutter_analyze returns errors
+- Fix errors in order shown — later errors often depend on earlier ones
+- Use `// ignore: <rule_name>` for intentional suppressions only
+- Run `dart fix --apply` to auto-fix common issues before manual review
+
+## Firebase MCP Setup
+
+The Firebase MCP server requires a service account key. Quick setup:
+
+1. Go to Firebase Console → Project Settings → Service Accounts
+2. Click "Generate New Private Key" → download JSON
+3. Move to a safe location: `mv ~/Downloads/key.json ~/keys/firebase-adminsdk.json`
+4. Update `.mcp.json`:
+   - `SERVICE_ACCOUNT_KEY_PATH`: `/Users/you/keys/firebase-adminsdk.json` (absolute path)
+   - `FIREBASE_PROJECT_ID`: your project ID (visible in Firebase Console URL)

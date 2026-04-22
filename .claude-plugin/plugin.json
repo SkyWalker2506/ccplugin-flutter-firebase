@@ -1,6 +1,6 @@
 {
   "name": "flutter-firebase",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Flutter + Firebase MCP integration for Claude Code",
   "author": {
     "name": "Musab Kara",
@@ -24,6 +24,12 @@
     "flutter-firebase"
   ],
   "commands": [
-    "flutter-setup"
-  ]
+    "flutter-setup",
+    "flutter-new",
+    "flutter-diagnose"
+  ],
+  "dependencies": {
+    "required": ["flutter", "dart"],
+    "optional": ["firebase-tools", "flutterfire_cli"]
+  }
 }
